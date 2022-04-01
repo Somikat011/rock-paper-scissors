@@ -38,7 +38,7 @@ function playerSelection(selection) {
     }
 }
 
-function playGame(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
     //Plays a single round of Rock, Paper, Scissors
 
     if (playerSelection == computerSelection) {
@@ -47,6 +47,34 @@ function playGame(playerSelection, computerSelection) {
     && computerSelection == "Rock") || (playerSelection == "Scissors" && computerSelection == "Paper")) {
         return `You Win! ${playerSelection} beats ${computerSelection}!`;
     } else {
-        return `You Lose! ${computerSelection} beats ${playerSelection}!`;;
+        return `You Lose! ${computerSelection} beats ${playerSelection}!`;
+    }
+}
+
+function game() {
+    //Play a five round game
+
+    let playerWins = 0;
+    let computerWins = 0;
+    let draws = 0;
+    
+    for (let i = 0; i < 5; i++) {
+        const result = playRound();
+        
+        if (result[4] == "W") {
+            playerWins++;
+        } else if (result[4] == "L") {
+            computerWins++;
+        } else {
+            draws++;
+        }
+    }
+
+    if (playerWins > computerWins) {
+        alert(`You are the overall winner, winning ${playerWins} out of 5. There were ${draws} draws.`);
+    } else if (computerWins > playerWins) {
+        alert(`You are the overall winner, winning ${playerWins} out of 5. There were ${draws} draws.`);
+    } else {
+        alert(`It's a draw. There were a total of ${draws} draws`);
     }
 }
