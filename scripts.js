@@ -1,6 +1,6 @@
 //Rock Paper Scissors javascript file
 
-function computerPlay() {
+function computerSelection() {
     //Assign and return random numbers a string value of Rock, Paper or Scissors
     
     let num = randomNumGenerator();
@@ -22,10 +22,10 @@ function randomNumGenerator() {
 }
 
 
-function playerSelection(selection) {
+function playerSelection() {
     //Receives and translates input into a desired output
 
-    selection = prompt("Please input your choice of 'Rock', 'Paper' or 'Scissors'", "");
+    let selection = prompt("Please input your choice of 'Rock', 'Paper' or 'Scissors'", "");
     selection = selection.toLowerCase();
 
     if (selection == "rock") {
@@ -35,19 +35,26 @@ function playerSelection(selection) {
     } else if (selection == "scissors") {
         return "Scissors";
     } else {
-        return "Sorry, that was an invalid choice. Please check your spelling and try again!"
+        alert("Sorry, that was an invalid choice. Please check your spelling and try again!");
+        selection = playerSelection();
+        return selection;
     }
 }
 
 function playRound(playerSelection, computerSelection) {
     //Plays a single round of Rock, Paper, Scissors
 
+    console.log(playerSelection);
+    console.log(computerSelection);
     if (playerSelection == computerSelection) {
+        console.log("It's a draw!");
         return "It's a draw!";
     } else if ((playerSelection == "Rock" && computerSelection == "Scissors") || (playerSelection == "Paper" 
     && computerSelection == "Rock") || (playerSelection == "Scissors" && computerSelection == "Paper")) {
+        console.log(`You Win! ${playerSelection} beats ${computerSelection}!`);
         return `You Win! ${playerSelection} beats ${computerSelection}!`;
     } else {
+        console.log(`You Lose! ${computerSelection} beats ${playerSelection}!`);
         return `You Lose! ${computerSelection} beats ${playerSelection}!`;
     }
 }
@@ -60,7 +67,7 @@ function game() {
     let draws = 0;
     
     for (let i = 0; i < 5; i++) {
-        const result = playRound();
+        let result = playRound(playerSelection(), computerSelection());
         
         if (result[4] == "W") {
             playerWins++;
@@ -69,6 +76,7 @@ function game() {
         } else {
             draws++;
         }
+        console.log(playerWins, computerWins, draws);
     }
 
     if (playerWins > computerWins) {
@@ -80,3 +88,4 @@ function game() {
     }
 }
 
+game();
