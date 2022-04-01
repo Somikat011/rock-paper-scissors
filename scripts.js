@@ -23,8 +23,9 @@ function randomNumGenerator() {
 
 
 function playerSelection(selection) {
-    //Translates input into a desired output
+    //Receives and translates input into a desired output
 
+    selection = prompt("Please input your choice of 'Rock', 'Paper' or 'Scissors'", "");
     selection = selection.toLowerCase();
 
     if (selection == "rock") {
@@ -78,3 +79,4 @@ function game() {
         alert(`It's a draw. There were a total of ${draws} draws`);
     }
 }
+
