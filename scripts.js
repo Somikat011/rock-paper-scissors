@@ -79,10 +79,15 @@ function game() {
         console.log(playerWins, computerWins, draws);
     }
 
-    if (playerWins > computerWins) {
-        alert(`You are the overall winner, winning ${playerWins} out of 5. There were ${draws} draws.`);
-    } else if (computerWins > playerWins) {
-        alert(`You are the overall winner, winning ${playerWins} out of 5. There were ${draws} draws.`);
+    results(playerWins, computerWins, draws);
+}
+
+function results(wins, losses, draws) {
+
+    if (wins > losses) {
+        alert(`You are the overall winner, winning ${wins} out of 5. There were ${draws} draws.`);
+    } else if (losses > wins) {
+        alert(`The computer is the overall winner. You won ${wins} out of 5. There were ${draws} draws.`);
     } else {
         alert(`It's a draw. There were a total of ${draws} draws`);
     }
