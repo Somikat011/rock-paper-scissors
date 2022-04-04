@@ -79,17 +79,18 @@ function game() {
         console.log(playerWins, computerWins, draws);
     }
 
-    results(playerWins, computerWins, draws);
+    displayResults(playerWins, computerWins, draws);
 }
 
-function results(wins, losses, draws) {
+function displayResults(wins, losses, draws) {
+    //Displays results
 
     if (wins > losses) {
-        alert(`You are the overall winner, winning ${wins} out of 5. There were ${draws} draws.`);
+        alert(`Feeling lucky punk? You must be because you are the overall winner, winning ${wins} out of 5. There were ${draws} draws.`);
     } else if (losses > wins) {
-        alert(`The computer is the overall winner. You won ${wins} out of 5. There were ${draws} draws.`);
+        alert(`You suck at this lol. The computer is the overall winner. You won ${wins} out of 5. There were ${draws} draws.`);
     } else {
-        alert(`It's a draw. There were a total of ${draws} draws`);
+        alert(`It's a draw. Lame. There were a total of ${draws} draws`);
     }
 }
 
