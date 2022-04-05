@@ -88,10 +88,11 @@ function displayResults(wins, losses, draws) {
     if (wins > losses) {
         alert(`Feeling lucky punk? You must be because you are the overall winner, winning ${wins} out of 5. There were ${draws} draws.`);
     } else if (losses > wins) {
-        alert(`You suck at this lol. The computer is the overall winner. You won ${wins} out of 5. There were ${draws} draws.`);
+        alert(`You suck at this lol. The computer is the overall winner. You won only ${wins} out of 5. There were ${draws} draws.`);
     } else {
         alert(`It's a draw. Lame. There were a total of ${draws} draws`);
     }
+    game();
 }
 
 game();
